@@ -14,12 +14,12 @@ export function sidebar() {
         </div>
         <div class="sidebar-list">
             <p class="title">Language</p>
-            <a href="/html/movielist.html" menu-close class="sidebar-link">English</a>
-            <a href="/html/movielist.html" menu-close class="sidebar-link">Hindi</a>
-            <a href="/html/movielist.html" menu-close class="sidebar-link">French</a>
-            <a href="/html/movielist.html" menu-close class="sidebar-link">German</a>
-            <a href="/html/movielist.html" menu-close class="sidebar-link">Spanish</a>
-            <a href="/html/movielist.html" menu-close class="sidebar-link">Chinese</a> 
+            <a href="/html/movielist.html" menu-close class="sidebar-link" onclick ='getMovieList("with_original_language=en","English")'>English</a>
+            <a href="/html/movielist.html" menu-close class="sidebar-link" onclick ='getMovieList("with_original_language=hi","Hindi")'>Hindi</a>
+            <a href="/html/movielist.html" menu-close class="sidebar-link" onclick ='getMovieList("with_original_language=fr","French")'>French</a>
+            <a href="/html/movielist.html" menu-close class="sidebar-link" onclick ='getMovieList("with_original_language=de","German")'>German</a>
+            <a href="/html/movielist.html" menu-close class="sidebar-link" onclick ='getMovieList("with_original_language=es","Spanish")'>Spanish</a>
+            <a href="/html/movielist.html" menu-close class="sidebar-link" onclick ='getMovieList("with_original_language=cn","Chinese")'>Chinese</a> 
         </div>
         <div class="sidebar-footer">
             <p class="copyright"> Copyright 2023 <a href="https://youtube.com/@codewithsadee">codewithmercy</a></p>
@@ -29,11 +29,12 @@ export function sidebar() {
 
     const genreLink = function () {
         for (const [genreId, genreName] of Object.entries(genreList)) {
+
             const link = document.createElement("a");
             link.classList.add("sidebar-link");
             link.setAttribute("href", "/html/movielist.html");
             link.setAttribute("menu-close", "");
-            // link.setAttribute("onclick", `getMovieList("with_genres=${genreId}","${genreName}")`);
+            link.setAttribute("onclick", `getMovieList("with_genres=${genreId}","${genreName}")`);
             link.textContent = genreName;
 
             sidebarInner.querySelectorAll(".sidebar-list")[0].appendChild(link);
